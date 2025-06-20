@@ -15,3 +15,20 @@ func New(cfg config.Config) error {
 	
 	return err
 }
+
+func Init() error {
+	
+	conf := config.Config{
+		SuperTokenUrl:    config.SuperTokenURL(),
+		SuperTokenApiKey: config.SuperTokensKey(),
+		EmailHost:        config.EmailHost(),
+		FromEmail:        config.EmailFrom(),
+		Password:         config.EmailPassword(),
+	}
+	
+	tService := token.NewTokenService(conf)
+	
+	err := tService.TokenInit()
+	
+	return err
+}

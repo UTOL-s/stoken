@@ -16,6 +16,14 @@ A Go module that provides token-related functionality with versatile environment
 go get github.com/UTOL-s/stoken
 ```
 
+## Env Preparation
+
+- SUPER_TOKENS_URL
+- SUPER_TOKENS_KEY
+- EMAIL_HOST
+- EMAIL_FROM
+- EMAIL_PASSWORD
+
 
 ## How to Push Updates to This Go Module
 
@@ -29,6 +37,20 @@ When a pull request is opened against the main branch, the following checks are 
 - Unit tests
 - Code formatting checks
 - Static analysis with go vet
+
+### Add Prefixes on commit
+- feature
+- feat
+- fix
+- bugfix
+- perf
+- refactor
+- test
+
+````
+Example:
+   feature: additional login
+````
 
 #### Release Workflow
 When changes are merged to the main branch, a release workflow is triggered that:
