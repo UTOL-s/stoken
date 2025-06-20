@@ -1,6 +1,15 @@
 package stoken
 
-func SToken(message string) string {
+import (
+	"github.com/UTOL-s/stoken/internal/token"
+	"github.com/UTOL-s/stoken/pkg/config"
+)
+
+func New(cfg config.Config) error {
 	
-	return message
+	tService := token.NewTokenService(cfg)
+	
+	err := tService.TokenInit()
+	
+	return err
 }

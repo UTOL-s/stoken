@@ -1,0 +1,11 @@
+{
+  "environment": "production",
+  "log_level": "warn",
+  "settings": {
+    "api_url": "https://api.example.com",
+    "timeout": "5s",
+    "debug_mode": "false",
+    "max_retries": "5",
+    "cache_ttl": "3600"
+  }
+}

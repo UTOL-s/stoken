@@ -1,0 +1,10 @@
+{
+  "environment": "development",
+  "log_level": "debug",
+  "settings": {
+    "api_url": "http://localhost:8080",
+    "timeout": "30s",
+    "debug_mode": "true",
+    "max_retries": "3"
+  }
+}
