@@ -1,2 +1,4 @@
+github.com/joho/godotenv v1.5.1 h1:7eLL/+HRGLY0ldzfGMeQkb7vMd0as4CfYvUVzLqw0N0=
+github.com/joho/godotenv v1.5.1/go.mod h1:f4LDr5Voq0i2e/R5DDNOoa2zzDfwtkZa6DnEwAbqwq4=
 github.com/supertokens/supertokens-golang v0.25.1 h1:97srN1Ucq+ArJ9mkBl+P4n5/LBn2uly1hmeUyP6Q0S8=
 github.com/supertokens/supertokens-golang v0.25.1/go.mod h1:/n6zQ9461RscnnWB4Y4bWwzhPivnj8w79j/doqkLOs8=
