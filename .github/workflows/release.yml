@@ -36,6 +36,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: main
+          skipInvalidTags: true
 
       - name: Create tag
         id: tag
