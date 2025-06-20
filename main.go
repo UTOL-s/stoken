@@ -7,6 +7,7 @@ import (
 
 func New(cfg config.Config) error {
 	
+	// Get Configuration
 	tService := token.NewTokenService(cfg)
 	
 	err := tService.TokenInit()
