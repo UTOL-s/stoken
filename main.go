@@ -10,6 +10,7 @@ func New(cfg config.Config) error {
 	// Get Configuration
 	tService := token.NewTokenService(cfg)
 	
+	// Initiate
 	err := tService.TokenInit()
 	
 	return err
