@@ -1,4 +1,4 @@
-package main
+package stoken
 
 import (
 	"github.com/UTOL-s/stoken/internal/token"
