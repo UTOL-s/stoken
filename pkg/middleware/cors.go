@@ -1,7 +1,6 @@
 package middleware
 
 import (
-	"net/http"
 	"strings"
 	
 	"github.com/ankorstore/yokai/config"
@@ -17,7 +16,7 @@ func NewCorsMiddleware(config *config.Config) *CorsMiddleware {
 	return &CorsMiddleware{config}
 }
 
-func (m *CorsMiddleware) Handle(next http.Handler) echo.MiddlewareFunc {
+func (m *CorsMiddleware) Handle() echo.MiddlewareFunc {
 	return func(hf echo.HandlerFunc) echo.HandlerFunc {
 		return func(c echo.Context) error {
 			allowedOrigins := []string{
