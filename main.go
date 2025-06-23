@@ -1,6 +1,8 @@
 package stoken
 
 import (
+	"log"
+	
 	"github.com/UTOL-s/stoken/internal/token"
 	"github.com/UTOL-s/stoken/pkg/config"
 )
@@ -16,7 +18,7 @@ func New(cfg config.Config) error {
 	return err
 }
 
-func Init() error {
+func Init() {
 	
 	conf := config.Config{
 		SuperTokenUrl:    config.SuperTokenURL(),
@@ -29,6 +31,9 @@ func Init() error {
 	tService := token.NewTokenService(conf)
 	
 	err := tService.TokenInit()
+	if err != nil {
+		log.Fatal(err.Error())
+	}
 	
-	return err
+	//return err
 }
