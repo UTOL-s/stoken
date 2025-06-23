@@ -1,26 +1,34 @@
 package token
 
 import (
-	"github.com/UTOL-s/stoken/pkg/config"
+	"github.com/ankorstore/yokai/config"
 	"github.com/supertokens/supertokens-golang/ingredients/emaildelivery"
 	"github.com/supertokens/supertokens-golang/recipe/passwordless"
 	"github.com/supertokens/supertokens-golang/recipe/passwordless/plessmodels"
 	"github.com/supertokens/supertokens-golang/supertokens"
 )
 
-// TokenService handles token operations
-type TokenService struct {
-	config config.Config
+var _ TokeClientFactory = (*DefaultTokenClientFactory)(nil)
+
+type TokeClientFactory interface {
+	TokenInit() error
 }
 
-// NewTokenService creates a new TokenService with the provided configuration
-func NewTokenService(cfg config.Config) *TokenService {
-	return &TokenService{
+// DefaultTokenClientFactory handles token operations
+type DefaultTokenClientFactory struct {
+	config *config.Config
+}
+
+// NewDefaultTokenClientFactory creates a new TokenService with the provided configuration
+func NewDefaultTokenClientFactory(cfg *config.Config) *DefaultTokenClientFactory {
+	return &DefaultTokenClientFactory{
 		config: cfg,
 	}
 }
 
-func (t *TokenService) TokenInit() error {
+func (f *DefaultTokenClientFactory) TokenInit() error {
+	
+	email := f.config.GetString("modules.stoken.email.username")
 	
 	apiBasePath := "/api/auth"
 	webBasePath := "/api/auth"
@@ -30,8 +38,8 @@ func (t *TokenService) TokenInit() error {
 		supertokens.TypeInput{
 			
 			Supertokens: &supertokens.ConnectionInfo{
-				ConnectionURI: t.config.SuperTokenUrl,
-				APIKey:        t.config.SuperTokenApiKey,
+				ConnectionURI: f.config.GetString("modules.stoken.apiUrl"),
+				APIKey:        f.config.GetString("modules.stoken.apiKey"),
 			},
 			
 			AppInfo: supertokens.AppInfo{
@@ -63,15 +71,15 @@ func (t *TokenService) TokenInit() error {
 							Service: passwordless.MakeSMTPService(emaildelivery.SMTPServiceConfig{
 								
 								Settings: emaildelivery.SMTPSettings{
-									Host: "smtp.mailgun.org",
+									Host: f.config.GetString("modules.stoken.email.host"),
 									From: emaildelivery.SMTPFrom{
 										Name:  "OTP",
-										Email: "&t.config.FromEmail",
+										Email: email,
 									},
 									Port: 465,
 									//Username: &smtpUsername, // this is optional. In case not given, from.email will be used
-									Username: &t.config.FromEmail,
-									Password: t.config.Password,
+									Username: &email,
+									Password: f.config.GetString("modules.stoken.email.password"),
 									Secure:   false,
 								},
 							}),
