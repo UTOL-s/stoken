@@ -13,7 +13,9 @@ type CorsMiddleware struct {
 }
 
 func NewCorsMiddleware(config *config.Config) *CorsMiddleware {
-	return &CorsMiddleware{config}
+	return &CorsMiddleware{
+		config: config,
+	}
 }
 
 func (m *CorsMiddleware) Handle() echo.MiddlewareFunc {
