@@ -29,7 +29,7 @@ type FxTokenClientParam struct {
 	Factory   token.TokenClientFactory
 }
 
-func TokenInit(f FxTokenClientParam) error {
+func TokenInit(f FxTokenClientParam) (bool, error) {
 	
 	email := f.Config.GetString("modules.stoken.email.username")
 	
@@ -94,8 +94,8 @@ func TokenInit(f FxTokenClientParam) error {
 	)
 	
 	if err != nil {
-		return err
+		return false, err
 	}
 	
-	return nil
+	return true, nil
 }
