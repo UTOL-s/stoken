@@ -5,6 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f48ea59e-01f2-4261-94e2-b59ca917a1e0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/factory.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middleware/session.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/token/token.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/mid.go" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/mid.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/module.go" beforeDir="false" afterPath="$PROJECT_DIR$/module.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

@@ -1,4 +1,4 @@
-package token
+package stoken
 
 import (
 	"github.com/ankorstore/yokai/config"
@@ -7,8 +7,6 @@ import (
 	"github.com/supertokens/supertokens-golang/recipe/passwordless/plessmodels"
 	"github.com/supertokens/supertokens-golang/supertokens"
 )
-
-//var _ TokenClientFactory = (*DefaultTokenClientFactory)(nil)
 
 type TokenClientFactory interface {
 	TokenInit() error

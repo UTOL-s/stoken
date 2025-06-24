@@ -8,15 +8,15 @@ import (
 	"github.com/supertokens/supertokens-golang/supertokens"
 )
 
-type Mid struct {
+type Middleware struct {
 	config *config.Config
 }
 
-func NewMid(config *config.Config) *Mid {
-	return &Mid{config}
+func NewMiddleware(config *config.Config) *Middleware {
+	return &Middleware{config}
 }
 
-func (mid *Mid) Handle() echo.MiddlewareFunc {
+func (mid *Middleware) Handle() echo.MiddlewareFunc {
 	return func(hf echo.HandlerFunc) echo.HandlerFunc {
 		return func(c echo.Context) error {
 			supertokens.Middleware(http.HandlerFunc(func(rw http.ResponseWriter, r *http.Request) {
