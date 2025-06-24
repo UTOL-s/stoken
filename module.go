@@ -13,9 +13,8 @@ var FxSTokenModule = fx.Module(
 	fx.Provide(
 		fx.Annotate(token.NewDefaultTokenClientFactory, fx.As(new(token.TokenClientFactory))),
 		TokenInit,
-		//NewTokenClientInit,
-	
 	),
+	fx.Invoke(func(*FxTokenClient) {}),
 )
 
 type FxTokenClientParam struct {
@@ -25,13 +24,21 @@ type FxTokenClientParam struct {
 	Factory   token.TokenClientFactory
 }
 
-func TokenInit(f FxTokenClientParam) (bool, error) {
+type FxTokenClient struct {
+	STokenInit bool
+}
+
+func TokenInit(f FxTokenClientParam) (*FxTokenClient, error) {
 	
 	err := f.Factory.TokenInit()
 	
 	if err != nil {
-		return false, err
+		return &FxTokenClient{
+			STokenInit: false,
+		}, err
 	}
 	
-	return true, nil
+	return &FxTokenClient{
+		STokenInit: true,
+	}, nil
 }
