@@ -12,7 +12,7 @@ var FxSTokenModule = fx.Module(
 	ModuleName,
 	fx.Provide(
 		fx.Annotate(token.NewDefaultTokenClientFactory, fx.As(new(token.TokenClientFactory))),
-		TokenInit,
+		fx.Invoke(TokenInit),
 		//NewTokenClientInit,
 	
 	),
