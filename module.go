@@ -29,6 +29,9 @@ type FxTokenClientParam struct {
 func NewTokenClientInit(p FxTokenClientParam) error {
 	
 	err := p.Factory.TokenInit()
+	if err != nil {
+		return err
+	}
 	
-	return err
+	return nil
 }

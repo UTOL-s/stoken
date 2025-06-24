@@ -90,5 +90,9 @@ func (f *DefaultTokenClientFactory) TokenInit() error {
 		},
 	)
 	
-	return err
+	if err != nil {
+		return err
+	}
+	
+	return nil
 }
