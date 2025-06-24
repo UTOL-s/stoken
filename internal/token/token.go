@@ -8,7 +8,7 @@ import (
 	"github.com/supertokens/supertokens-golang/supertokens"
 )
 
-var _ TokenClientFactory = (*DefaultTokenClientFactory)(nil)
+//var _ TokenClientFactory = (*DefaultTokenClientFactory)(nil)
 
 type TokenClientFactory interface {
 	TokenInit() error

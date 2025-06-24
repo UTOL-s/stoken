@@ -10,7 +10,7 @@ const ModuleName = "stoken"
 var FxSTokenModule = fx.Module(
 	ModuleName,
 	fx.Provide(
-		token.NewDefaultTokenClientFactory,
+		fx.Annotate(token.NewDefaultTokenClientFactory, fx.As(new(token.TokenClientFactory))),
 		NewTokenClientInit,
 	
 	),
