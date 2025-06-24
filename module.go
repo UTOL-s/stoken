@@ -11,24 +11,24 @@ var FxSTokenModule = fx.Module(
 	ModuleName,
 	fx.Provide(
 		fx.Annotate(token.NewDefaultTokenClientFactory, fx.As(new(token.TokenClientFactory))),
-		NewTokenClientInit,
+		//NewTokenClientInit,
 	
 	),
 )
 
-type FxTokenClientParam struct {
-	fx.In
-	//Lifecycle fx.Lifecycle
-	//Config    *config.Config
-	Factory token.TokenClientFactory
-}
-
-func NewTokenClientInit(p FxTokenClientParam) error {
-	
-	err := p.Factory.TokenInit()
-	if err != nil {
-		return err
-	}
-	
-	return nil
-}
+//type FxTokenClientParam struct {
+//	fx.In
+//	Lifecycle fx.Lifecycle
+//	//Config    *config.Config
+//	Factory token.TokenClientFactory
+//}
+//
+//func NewTokenClientInit(p FxTokenClientParam) error {
+//
+//	err := p.Factory.TokenInit()
+//	if err != nil {
+//		return err
+//	}
+//
+//	return nil
+//}
