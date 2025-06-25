@@ -13,8 +13,9 @@ var FxSTokenModule = fx.Module(
 	ModuleName,
 	fx.Provide(
 		NewDefaultTokenClientFactory,
+		TokenInit,
 	),
-	fx.Invoke(TokenInit),
+	fx.Invoke(func(*FxTokenClient) {}),
 )
 
 type FxTokenClientParam struct {
