@@ -10,6 +10,7 @@ import (
 
 type CorsMiddleware struct {
 	config *config.Config
+	//token  stoken.FxTokenClient
 }
 
 func NewCorsMiddleware(config *config.Config) *CorsMiddleware {
