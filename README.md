@@ -2,8 +2,6 @@
 
 A Go module that provides token-related functionality with versatile environment configuration support.
 
-
-
 ## Features
 
 - **Environment-based Configuration**: Automatically adapts behavior based on the current environment (development, testing, production)
