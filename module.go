@@ -12,8 +12,8 @@ const ModuleName = "stoken"
 var FxSTokenModule = fx.Module(
 	ModuleName,
 	fx.Provide(
-		NewDefaultTokenClientFactory,
-		TokenInit,
+		fx.Annotate(NewDefaultTokenClientFactory, fx.As(new(TokenClientFactory))),
+		TokenInitialize,
 	),
 	fx.Invoke(func(*FxTokenClient) {}),
 )
@@ -29,7 +29,7 @@ type FxTokenClient struct {
 	STokenInit bool
 }
 
-func TokenInit(f FxTokenClientParam) (*FxTokenClient, error) {
+func TokenInitialize(f FxTokenClientParam) (*FxTokenClient, error) {
 	
 	f.Lifecycle.Append(fx.Hook{
 		OnStart: func(context.Context) error {
